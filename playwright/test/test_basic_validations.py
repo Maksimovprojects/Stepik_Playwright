@@ -13,7 +13,7 @@ def test_playwright_shortcut(page: Page):
     page.goto("http://rahulshettyacademy.com/")
 
 
-def test_core_locators(page: Page):
+def test_negative_login_wrong_password(page: Page):
     page.goto("https://rahulshettyacademy.com/loginpagePractise/")
     page.get_by_label("Username").fill("qwertyhjmn") # rahulshettyacademy
     page.get_by_label("Password").fill("123") # learning
