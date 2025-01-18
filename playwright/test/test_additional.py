@@ -9,18 +9,21 @@ def test_UI_checks(page: Page):
     expect(page.get_by_placeholder('Hide/Show Example')).to_be_visible()
     page.get_by_role("button", name="Hide").click()
     expect(page.get_by_placeholder('Hide/Show Example')).to_be_hidden()
+    page.close()
 
 # Alert box handling
 def test_ui_alert_handling(page: Page):
     page.goto("https://rahulshettyacademy.com/AutomationPractice/")
     page.get_by_role("button", name="Confirm").click()
     page.on("dialog", lambda dialog:dialog.accept())
+    page.close()
 
 def test_ui_iframe_handling(page: Page):
     page.goto("https://rahulshettyacademy.com/AutomationPractice/")
     frame_section = page.frame_locator("#courses-iframe")
     frame_section.get_by_role("link", name="All Access plan").click()
     expect(frame_section.locator("body")).to_contain_text("13,522 Happy Subscibers!")
+    page.close()
 
 def test_ui_web_table_handling(page: Page):
     # identify price column
@@ -48,11 +51,13 @@ def test_ui_web_table_handling(page: Page):
     expect(rice_row.locator("td").nth(price_column_value)).to_have_text('37')
     # assertion 2
     assert rice_row.locator("td").nth(price_column_value).text_content() == "37", "Price of rice ist not 37"
+    page.close()
 
 def test_ui_mouse_hover(page: Page):
     page.goto("https://rahulshettyacademy.com/AutomationPractice/")
     page.locator("#mousehover").hover()
     page.get_by_role("link", name="Top").click()
+    page.close()
 
 
 

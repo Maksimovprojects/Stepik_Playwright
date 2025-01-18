@@ -51,18 +51,24 @@ def test_check_with_different_user_order_id_security(page: Page):
         "Unauthorized message isn't matching"
     # way 3
     expect(page.locator('.blink_me')).to_have_text('You are not authorize to view this order')
+    page.close()
 
-def test_session_storage(playwright: Playwright):
+def test_session_storage_throwing_token(playwright: Playwright):
     api_utils =  Apiutils()
     token = api_utils.login_api(playwright)
-    assert token is not None, "Token is None"
+    print(f"This token from 'test_session_storage' method: {token}")
+    # assert token is not None, "Token is None"
     browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context
+    context = browser.new_context()
     page = context.new_page()
 
     # script to inject token into session storage
-    page.add_script_tag(f"""local_storage_set_item('token', + {token} + ')""")
+    page.add_init_script(f"""localStorage.setItem('token', '{token}')""")
     page.goto('https://rahulshettyacademy.com/client')
+    page.get_by_role('button', name='ORDERS').click()
+    expect(page.get_by_text("Your Orders")).to_be_visible()
+    page.close()
+
 
 
 

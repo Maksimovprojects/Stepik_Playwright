@@ -33,6 +33,6 @@ def test_e2e_web_api(playwright: Playwright):
     expect(page.locator('.tagline')).to_contain_text('Thank you for Shopping With Us')
 
     # stop tracing
-    context.tracing.stop(path = "trace.zip")
+    context.tracing.stop(path ="../trace.zip")
     context.close()
 
