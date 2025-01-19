@@ -4,7 +4,7 @@ from playwright.sync_api import Playwright, expect
 from playwright.sync_api import Page
 from utils.api_base import Apiutils
 
-# data for "test_mock_empty_orders" test function
+# data for "test_mock_empty_orders" test_project function
 fake_payload_response = {"data":[],"message":"No Orders"}
 # Intercepting network requests and mocking responses
 # API call from browser to server -> API call contact server and return response
@@ -17,7 +17,7 @@ def test_mock_empty_orders(page: Page):
     page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*", intercept_response)
 
     # login and go to orders list
-    page.locator('#userEmail').fill('test@test.ru')
+    page.locator('#userEmail').fill('test_project@test_project.ru')
     page.locator('#userPassword').fill('Resiver28')
     page.locator('#login').click()
     page.get_by_role('button', name='ORDERS').click()
@@ -37,7 +37,7 @@ def intercept_request(route):
 def test_check_with_different_user_order_id_security(page: Page):
     page.goto('https://rahulshettyacademy.com/client')
     page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*", intercept_request)
-    page.locator('#userEmail').fill('test@test.ru')
+    page.locator('#userEmail').fill('test_project@test_project.ru')
     page.locator('#userPassword').fill('Resiver28')
     page.locator('#login').click()
     page.get_by_role('button', name='ORDERS').click()

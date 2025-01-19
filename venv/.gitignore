@@ -1,0 +1,20 @@
+# created by virtualenv automatically
+
+# Ignore local virtualenvs
+lib/
+bin/
+include/
+.Python/
+
+# These lines are suggested according to the svn:ignore property
+# Feel free to enable them by uncommenting them
+*.pyc
+*.pyo
+*.swp
+*.class
+*.orig
+*~
+.hypothesis/
+
+*/test/__pycache__/
+ venv/

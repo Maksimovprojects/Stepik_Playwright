@@ -19,7 +19,7 @@ payload_add_item_to_cart = {"_id":"678891a8e2b5443b1f258c71",
 payload_create_order = {'orders': [{'country': "Russian Federation", 'productOrderedId': "678522b5e2b5443b1f218601"}]}
 
 # Test_data
-email = "test@test.ru"
+email = "test_project@test_project.ru"
 password = "Resiver28"
 
 class Apiutils:

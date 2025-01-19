@@ -1,17 +1,24 @@
+import json
 from playwright.sync_api import Playwright, expect
-from utils.api_base import Apiutils
+from project.utils.api_base import Apiutils
 
 
 def test_e2e_web_api(playwright: Playwright):
     browser = playwright.chromium.launch()
     context = browser.new_context()
+
+    # json file with credentials
+    with open('../data/credentials.json') as file:
+        test_data = json.load(file)
+        print(test_data)
+
     # Start tracing
     context.tracing.start(screenshots=True, snapshots=True)
     page = context.new_page()
 
     # login and validate added item and placed order
     page.goto('https://rahulshettyacademy.com/client')
-    page.locator('#userEmail').fill('test@test.ru')
+    page.locator('#userEmail').fill('test_project@test_project.ru')
     page.locator('#userPassword').fill('Resiver28')
     page.locator('#login').click()
 
