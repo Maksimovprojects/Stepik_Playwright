@@ -4,8 +4,7 @@ class OrderDetailsPage:
     def __init__(self, page):
         self.page = page
 
-    def verify_order_message(self, order_id):
-        expect(order_id.locator('tbody .ng-star-inserted').filter(has_text=order_id)).not_to_be_empty()
+    def verify_order_message(self):
         # Getting the row with the orders and filtering the button "view" into our order id row, narrowing the search
         expect(self.page.locator('.tagline')).to_contain_text('Thank you for Shopping With Us')
 

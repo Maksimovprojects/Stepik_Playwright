@@ -36,16 +36,16 @@ class Apiutils:
 
 
 
-    def add_item_to_cart(self, playwright: Playwright, user_credentials):
-        token = self.login_api(playwright, user_credentials)
-        api_request_context = playwright.request.new_context(base_url='https://rahulshettyacademy.com')
-        response = api_request_context.post('api/ecom/user/add-to-cart',
-                                 data=payload_add_item_to_cart,
-                                 headers={'Authorization': token, 'content-type': 'application/json'}, )
-        response.json()
-        print(response.json())
-        assert response.ok, "Response is not ok"
-        print(f"This token from 'add_item_to_cart' method: {token}")
+    # def add_item_to_cart(self, playwright: Playwright, user_credentials):
+    #     token = self.login_api(playwright, user_credentials)
+    #     api_request_context = playwright.request.new_context(base_url='https://rahulshettyacademy.com')
+    #     response = api_request_context.post('api/ecom/user/add-to-cart',
+    #                              data=payload_add_item_to_cart,
+    #                              headers={'Authorization': token, 'content-type': 'application/json'}, )
+    #     response.json()
+    #     print(response.json())
+    #     assert response.ok, "Response is not ok"
+    #     print(f"This token from 'add_item_to_cart' method: {token}")
 
 
 

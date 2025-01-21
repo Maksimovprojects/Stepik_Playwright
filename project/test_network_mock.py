@@ -1,4 +1,7 @@
+import json
 import time
+
+import pytest
 from playwright.sync_api import Playwright, expect
 from playwright.sync_api import Page
 from utils.api_base import Apiutils
@@ -51,9 +54,21 @@ def test_check_with_different_user_order_id_security(page: Page):
     expect(page.locator('.blink_me')).to_have_text('You are not authorize to view this order')
     page.close()
 
-def test_session_storage_throwing_token(playwright: Playwright):
+
+
+
+
+# json file with credentials
+with open('../project/data/credentials.json') as file:
+    test_data = json.load(file)
+    test_data_list = test_data['user_credentials']
+    print(test_data_list)
+
+# 1 test will fail due having order_id from another user
+@pytest.mark.parametrize("user_credentials", test_data_list)
+def test_session_storage_throwing_token(playwright: Playwright, user_credentials):
     api_utils =  Apiutils()
-    token = api_utils.login_api(playwright)
+    token = api_utils.login_api(playwright, user_credentials)
     print(f"This token from 'test_session_storage' method: {token}")
     # assert token is not None, "Token is None"
     browser = playwright.chromium.launch(headless=False)
