@@ -1,7 +1,7 @@
 # created by virtualenv automatically
 
 # Ignore local virtualenvs
-lib/
+venv/lib/
 bin/
 include/
 .Python/
