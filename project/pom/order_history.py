@@ -1,4 +1,4 @@
-from project.pom.order_details_page import OrderDetailsPage
+from .order_details_page import OrderDetailsPage
 
 
 class OrderHistory:

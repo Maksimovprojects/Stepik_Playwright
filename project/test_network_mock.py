@@ -1,10 +1,8 @@
 import json
-import time
-
 import pytest
 from playwright.sync_api import Playwright, expect
 from playwright.sync_api import Page
-from utils.api_base import Apiutils
+from project.utils.api_base_pom_framework import Apiutils
 
 # data for "test_mock_empty_orders" test_project function
 fake_payload_response = {"data":[],"message":"No Orders"}
@@ -35,6 +33,8 @@ def test_mock_empty_orders(page: Page):
 def intercept_request(route):
     route.continue_(url="https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=6711e249ae2afd4c0b9f6fb0")
 
+@pytest.mark.smoke
+@pytest.mark.regression
 def test_check_with_different_user_order_id_security(page: Page):
     page.goto('https://rahulshettyacademy.com/client')
     page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*", intercept_request)
@@ -53,9 +53,6 @@ def test_check_with_different_user_order_id_security(page: Page):
     # way 3
     expect(page.locator('.blink_me')).to_have_text('You are not authorize to view this order')
     page.close()
-
-
-
 
 
 # json file with credentials

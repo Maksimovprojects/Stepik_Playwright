@@ -1,4 +1,4 @@
-from project.pom.order_history import OrderHistory
+from .order_history import OrderHistory
 
 
 class DashboardPage():

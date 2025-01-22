@@ -1,5 +1,5 @@
 import time
-
+import pytest
 from playwright.sync_api import Page, expect
 
 
@@ -12,7 +12,7 @@ def test_playwright(playwright):
 def test_playwright_shortcut(page: Page):
     page.goto("http://rahulshettyacademy.com/")
 
-
+@pytest.mark.smoke
 def test_negative_login_wrong_password(page: Page):
     page.goto("https://rahulshettyacademy.com/loginpagePractise/")
     page.get_by_label("Username").fill("qwertyhjmn") # rahulshettyacademy
@@ -37,7 +37,7 @@ def test_firefox(playwright):
     expect(page.get_by_text("Incorrect username/password.")).to_be_visible()
     browser.close()
 
-
+@pytest.mark.regression
 def test_child_window_handling(page: Page):
     page.goto("https://rahulshettyacademy.com/loginpagePractise/")
     with page.expect_popup() as new_page:

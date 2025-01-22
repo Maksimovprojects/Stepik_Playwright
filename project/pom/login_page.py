@@ -1,6 +1,4 @@
-from project.pom.dashboard_page import DashboardPage
-
-
+from .dashboard_page import DashboardPage
 
 class LoginPage():
 

@@ -21,12 +21,12 @@ payload_create_order = {'orders': [{'country': "Russian Federation", 'productOrd
 
 class Apiutils:
 
-    def login_api(self, playwright: Playwright):
+    def login_api(self, playwright: Playwright, user_credentials):
         api_request_context = playwright.request.new_context(base_url='https://rahulshettyacademy.com/client/auth/login')
 
         login_response = api_request_context.post('/api/ecom/auth/login',
-                                                  data={'userEmail': 'test@test.ru',
-                                                        'userPassword': 'Resiver28'},
+                                                  data={'userEmail': user_credentials['user_email'],
+                                                        'userPassword': user_credentials['user_password']},
                                                   headers={'content-type': 'application/json'})
         login_response_body = login_response.json()
         assert  login_response.ok, "Response is not ok"
@@ -49,8 +49,8 @@ class Apiutils:
 
 
 
-    def create_order(self, playwright: Playwright):
-        token = self.login_api(playwright)
+    def create_order(self, playwright: Playwright, user_credentials):
+        token = self.login_api(playwright, user_credentials)
         api_request_context = playwright.request.new_context(base_url='https://rahulshettyacademy.com')
         response = api_request_context.post('/api/ecom/order/create-order',
                                  data=payload_create_order,
