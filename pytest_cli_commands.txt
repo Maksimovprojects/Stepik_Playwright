@@ -1,0 +1,16 @@
+Note that CLI arguments are only applied to the default browser, context and page fixtures. If you create a browser, a context or a page with the API call like browser.new_context(), the CLI arguments are not applied.
+
+# Specifically runs tests in firefox browser, having tagging as smoke,
+# running 3 tests in parallel, with tracing on and generates html report
+pytest --browser_name firefox -m smoke -n 3 --tracing on --html=report.html
+
+--headed: Run tests in headed mode (default: headless).
+--browser: Run tests in a different browser chromium, firefox, or webkit. It can be specified multiple times (default: chromium).
+--browser-channel Browser channel to be used.
+--slowmo Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on (default: 0).
+--device Device to be emulated.
+--output Directory for artifacts produced by tests (default: test-results).
+--tracing Whether to record a trace for each test. on, off, or retain-on-failure (default: off).
+--video Whether to record video for each test. on, off, or retain-on-failure (default: off).
+--screenshot Whether to automatically capture a screenshot after each test. on, off, or only-on-failure (default: off).
+--full-page-screenshot Whether to take a full page screenshot on failure. By default, only the viewport is captured. Requires --screenshot to be enabled (default: off).
