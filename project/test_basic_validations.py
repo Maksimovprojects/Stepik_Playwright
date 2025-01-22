@@ -37,6 +37,7 @@ def test_firefox(playwright):
     expect(page.get_by_text("Incorrect username/password.")).to_be_visible()
     browser.close()
 
+
 @pytest.mark.regression
 def test_child_window_handling(page: Page):
     page.goto("https://rahulshettyacademy.com/loginpagePractise/")

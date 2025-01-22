@@ -28,12 +28,12 @@ def browser_instance(playwright, request):
     page = context.new_page()
     # page.goto(url_name)
     # Start tracing
-    context.tracing.start(screenshots=True, snapshots=True)
+    # context.tracing.start(screenshots=True, snapshots=True)
 
     yield page
 
     # stop tracing and save trace.zip
-    context.tracing.stop(path ="../trace.zip")
+    # context.tracing.stop(path ="../trace.zip")
     context.close()
     browser.close()
 
