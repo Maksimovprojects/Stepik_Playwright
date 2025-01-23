@@ -39,6 +39,7 @@ jobs:
     - name: Test with pytest
 
       run: |
+        set -e
         python3 -m pytest tests/test_check_UI.py -v -s -m smoke -n 3 --tracing on --html=report_check_UI.html
         python3 -m pytest tests/test_framework_web_api.py -v -s -m smoke -n 3 --tracing on --html=report_framework_web_api.html
         python3 -m pytest tests/test_network_mock.py -v -s -m smoke -n 3 --tracing on --html=report_network_mock.html
