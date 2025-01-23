@@ -25,5 +25,6 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
+        set -e
         pip install pytest pytest-cov
         pytest test -m smoke -n 3 --tracing on --html=report.html
