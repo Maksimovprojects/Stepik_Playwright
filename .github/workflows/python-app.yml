@@ -15,4 +15,4 @@ steps:
 - name: Test with pytest
   run: |
     pip install pytest pytest-cov
-    pytest -m smoke -n 3 --tracing on --html=report.html
+    pytest -m smoke -n 3 --html=report.html
