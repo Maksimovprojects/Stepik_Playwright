@@ -56,7 +56,7 @@ def test_check_with_different_user_order_id_security(page: Page):
 
 
 # json file with credentials
-with open('../project/data/credentials.json') as file:
+with open('./project/data/credentials.json') as file:
     test_data = json.load(file)
     test_data_list = test_data['user_credentials']
     print(test_data_list)
