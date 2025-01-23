@@ -5,7 +5,7 @@ from project.pom.login_page import LoginPage
 from project.utils.api_base_pom_framework import Apiutils
 
 # json file with credentials
-with open('./project/data/credentials.json') as file:
+with open('./test_project/data/credentials.json') as file:
     test_data = json.load(file)
     test_data_list = test_data['user_credentials']
     print(test_data_list)
