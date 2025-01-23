@@ -27,4 +27,4 @@ jobs:
       run: |
         set -e
         pip install pytest pytest-cov
-        pytest test -m smoke -n 3 --tracing on --html=report.html
+        pytest test_project -m smoke -n 3 --tracing on --html=report.html
