@@ -1,8 +1,8 @@
 import json
 import pytest
 from playwright.sync_api import Playwright
-from project.pom.login_page import LoginPage
-from project.utils.api_base_pom_framework import Apiutils
+from test_project.pom.login_page import LoginPage
+from test_project.utils.api_base_pom_framework import Apiutils
 
 # json file with credentials
 with open('./test_project/data/credentials.json') as file:

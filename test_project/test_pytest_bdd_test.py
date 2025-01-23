@@ -1,7 +1,7 @@
 import pytest
 from pytest_bdd import given, when, then, parsers, scenarios
-from project.pom.login_page import LoginPage
-from project.utils.api_base_pom_framework import Apiutils
+from test_project.pom.login_page import LoginPage
+from test_project.utils.api_base_pom_framework import Apiutils
 
 
 scenarios('features/order_transaction.feature')

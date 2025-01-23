@@ -2,7 +2,7 @@ import json
 import pytest
 from playwright.sync_api import Playwright, expect
 from playwright.sync_api import Page
-from project.utils.api_base_pom_framework import Apiutils
+from test_project.utils.api_base_pom_framework import Apiutils
 
 # data for "test_mock_empty_orders" test_project function
 fake_payload_response = {"data":[],"message":"No Orders"}
