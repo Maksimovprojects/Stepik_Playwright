@@ -37,5 +37,8 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
+
       run: |
-        python3 -m pytest tests -v -s -m smoke -n 3 --tracing on --html=report.html
+                python3 -m pytest tests/test_check_UI.py -v -s -m smoke -n 3 --tracing on --html=report_check_UI.html
+        python3 -m pytest tests/test_framework_web_api.py -v -s -m smoke -n 3 --tracing on --html=report_framework_web_api.html
+        python3 -m pytest tests/test_network_mock.py -v -s -m smoke -n 3 --tracing on --html=report_network_mock.html
