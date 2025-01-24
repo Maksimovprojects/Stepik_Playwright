@@ -68,7 +68,7 @@ def test_session_storage_throwing_token(playwright: Playwright, user_credentials
     token = api_utils.login_api(playwright, user_credentials)
     print(f"This token from 'test_session_storage' method: {token}")
     # assert token is not None, "Token is None"
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
     page = context.new_page()
 

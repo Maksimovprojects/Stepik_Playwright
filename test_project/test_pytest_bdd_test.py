@@ -7,7 +7,6 @@ from test_project.utils.api_base_pom_framework import Apiutils
 scenarios('features/order_transaction.feature')
 
 @pytest.fixture
-
 def share_data():
     return {}
 

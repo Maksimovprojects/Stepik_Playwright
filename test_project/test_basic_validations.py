@@ -4,7 +4,7 @@ from playwright.sync_api import Page, expect
 
 
 def test_playwright(playwright):
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
     page = context.new_page().goto("http://rahulshettyacademy.com/")
 
@@ -25,7 +25,7 @@ def test_negative_login_wrong_password(page: Page):
 
 
 def test_firefox(playwright):
-    browser = playwright.firefox.launch(headless=False)
+    browser = playwright.firefox.launch(headless=True)
     page = browser.new_page()
     page.goto("https://rahulshettyacademy.com/loginpagePractise/")
     page.get_by_label("Username").fill("qwertyhjmn")  # rahulshettyacademy
